@@ -1,0 +1,26 @@
+spack:
+  specs:
+  - gmake @4.3
+  - libfabric fabrics=sockets,tcp,udp,psm2,verbs
+  - gromacs@2023%gcc +plumed +mpi +openmp +cuda ^openmpi@4.1.6+cuda ^cuda ^slurm@23-02-7-1 +pmix ^ucx 
+  packages:
+    openmpi:
+      require: "+pmi+legacylaunchers fabrics=ucx schedulers=slurm"
+    ucx:
+      require: "+thread_multiple +cma +rc +ud +dc +mlx5_dv +ib_hw_tm +dm"
+  container:
+    format: docker
+
+    images:
+      os: ubuntu:22.04
+      spack: develop
+
+    strip: false
+
+    os_packages:
+      final:
+        - gfortran
+
+    labels:
+      app: "gromcas"
+      mpi: "openmpi"
