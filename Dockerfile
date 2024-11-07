@@ -24,7 +24,7 @@ set -o noclobber \
 &&   echo '  view: /opt/views/view') > /opt/spack-environment/spack.yaml
 
 # Install the software, remove unnecessary deps
-RUN cd /opt/spack-environment && spack env activate . && spack install --fail-fast && spack gc -y
+RUN source /opt/spack/share/spack/setup-env.sh && cd /opt/spack-environment && spack env activate . && spack install --fail-fast && spack gc -y
 
 # Modifications to the environment that are necessary to run
 RUN cd /opt/spack-environment && \
