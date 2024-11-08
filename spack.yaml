@@ -2,7 +2,7 @@ spack:
   specs:
   - gmake @4.3
   - libfabric fabrics=sockets,tcp,udp,psm2,verbs
-  - gromacs@2023%gcc +plumed +mpi +openmp +cuda ^openmpi@4.1.6+cuda ^cuda ^slurm@23-02-7-1 +pmix ^ucx 
+  - gromacs@2023%gcc +plumed +mpi +openmp +cuda ^openmpi@4.1.6+cuda ^cuda@12.0 ^slurm@23-02-7-1 +pmix ^ucx 
   packages:
     openmpi:
       require: "+pmi+legacylaunchers fabrics=ucx schedulers=slurm"

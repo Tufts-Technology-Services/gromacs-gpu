@@ -10,7 +10,7 @@ set -o noclobber \
 &&   echo '  specs:' \
 &&   echo '  - gmake @4.3' \
 &&   echo '  - libfabric fabrics=sockets,tcp,udp,psm2,verbs' \
-&&   echo '  - gromacs@2023%gcc +plumed +mpi +openmp +cuda ^openmpi@4.1.6+cuda ^cuda ^slurm@23-02-7-1' \
+&&   echo '  - gromacs@2023%gcc +plumed +mpi +openmp +cuda ^openmpi@4.1.6+cuda ^cuda@12.0 ^slurm@23-02-7-1' \
 &&   echo '    +pmix ^ucx' \
 &&   echo '  packages:' \
 &&   echo '    openmpi:' \
